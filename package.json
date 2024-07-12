@@ -39,7 +39,4 @@
     "svelte-dnd-action": "^0.9.11"
   },
   "svelte": "./src/main.js",
-  "dependencies": {
-    "@fds-components/fds-image-editor-button": "^1.0.26"
-  }
 }
