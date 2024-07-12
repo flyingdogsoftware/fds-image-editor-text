@@ -38,5 +38,5 @@
     "svelte": "3.*",
     "svelte-dnd-action": "^0.9.11"
   },
-  "svelte": "./src/main.js",
+  "svelte": "./src/main.js"
 }
