@@ -21,10 +21,6 @@
     "dist/img/*.*"
   ],
   "devDependencies": {
-    "@fds-components/fds-helper": "^1.0.9",
-    "@fds-components/fds-icon": "^1.1.7",
-    "@fds-components/fds-md-documenter": "^1.0.23",
-    "@fds-components/fds-slider": "^1.0.6",
     "@rollup/plugin-commonjs": "17.1.*",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "11.2.*",
