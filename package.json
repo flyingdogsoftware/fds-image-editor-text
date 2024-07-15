@@ -41,7 +41,7 @@
   "svelte": "./src/main.js",
      "repository": {
       "type": "git",
-      "url": "https://github.com/flyingdogsoftware/fds-image-editor-sam"
+      "url": "https://github.com/flyingdogsoftware/fds-image-editor-text"
     },
     "author": "Nicolay Mausz",
     "license": "MIT"
