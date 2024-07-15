@@ -38,5 +38,11 @@
     "svelte": "3.*",
     "svelte-dnd-action": "^0.9.11"
   },
-  "svelte": "./src/main.js"
+  "svelte": "./src/main.js",
+     "repository": {
+      "type": "git",
+      "url": "https://github.com/flyingdogsoftware/fds-image-editor-sam"
+    },
+    "author": "Nicolay Mausz",
+    "license": "MIT"
 }
