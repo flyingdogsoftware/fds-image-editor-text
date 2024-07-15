@@ -1,8 +1,8 @@
 <svelte:options tag="fds-image-editor-text"></svelte:options>
 <script>
     import { onMount } from "svelte"
-    import fdsHelper from "@fds-components/fds-helper"
-   // let path = fdsHelper.get_href()
+    
+   
     import {get_current_component} from "svelte/internal"
     let host = get_current_component()
     import { version as componentversion, name } from "../package.json"
@@ -26,19 +26,7 @@
     export function refresh() {
         layer=layer
     }
-    /**
-     * Get information about component
-     * @param  {("api" | "examples" | "css")} type the info type
-     */
-    export async function getInfo(type) {
-        if (type === "version") {
-            return new Promise((resolve) => {
-                resolve(componentversion);
-            });
-        }
-        let res = await fdsHelper.getInfo(type, name);
-        return res;
-    }
+    
 
     /**
      * version of component
