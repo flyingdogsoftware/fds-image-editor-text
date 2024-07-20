@@ -50,5 +50,4 @@ Want to contribute or just connect with other developers working on Gyre project
 
 [![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/HyaNtnU5Pw)
 
-This README follows a similar format with badges, links, and an overview of the image editor text plugin.
  
