@@ -45,14 +45,14 @@
         <div style="display:flex;align-items: center">
             Text |
             Font Size: <span class="values3" style="display: inline-block; margin-right: 10px">{values.selectedLayer.font_size}</span>
-            <fds-slider
+            <fds-image-editor-slider
                     class="slider"
                     min="50"
                     max="900"
                     on:input={(e) => { values.selectedLayer.font_size=e.target.value;values=values;change("change","font_size") }}
                     value={values.selectedLayer.font_size}
                     style="margin-right:20px"
-            ></fds-slider>
+            ></fds-image-editor-slider>
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <fds-image-editor-button type="button" on:click={() => { editText=!editText }}>Text/Font...</fds-image-editor-button>
@@ -80,14 +80,14 @@
                 Letter Spacing: <span class="values3">{values.selectedLayer.letter_spacing}</span>
             </div>
             <div style="margin-top: 6px">
-                <fds-slider
+                <fds-image-editor-slider
                         min="-2"
                         max="8"
                         step="0.1"
                         on:input={(e) => { values.selectedLayer.letter_spacing=e.target.value;values=values;change("change","letter_spacing") }}
                         value={values.selectedLayer.letter_spacing}
                         style=""
-                ></fds-slider>
+                ></fds-image-editor-slider>
             </div>
             <div class="buttoncontainer">
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
