@@ -54,11 +54,22 @@
         layer.url = await renderForAI()     // set image data
         width = resultLayer._width
         height = resultLayer._height
-        let onelayer = [layer] // only one layer
-        let base64 = await imageAPI.getImageDataCombined(onelayer, resultLayer.x, resultLayer.y, resultLayer.width, resultLayer.height, {width:canvas.width,height:canvas.height}, null, true)
+        // after generated image of text layer croü to selected region
+        let clippedCanvas = window.document.createElement('canvas')
+        clippedCanvas.width = resultLayer.width
+        clippedCanvas.height = resultLayer.height
+        let clippedCtx = clippedCanvas.getContext('2d')
+        clippedCtx.drawImage(await imageAPI.base64ToCanvas(layer.url), resultLayer.x, resultLayer.y, resultLayer.width, resultLayer.height, 0, 0, resultLayer.width, resultLayer.height);
+        let base64=clippedCanvas.toDataURL()
+        // scale 
         let scaledBase64 = await imageAPI.scaleImageCanvas(base64, resultLayer.generate.targetWidth, resultLayer.generate.targetHeight)
         let ScaledImageInfo={}
-        ScaledImageInfo.base64 = ScaledImageInfo.urlRef=await  imageAPI.fillImageBackground(scaledBase64, 'white')
+        // fill transparent areas with white
+        base64 = await  imageAPI.fillImageBackground(scaledBase64, 'white')
+        let HTMLCanvas=await imageAPI.base64ToCanvas(base64)
+        // white on black needed for ControlNet
+        imageAPI.canvasInvert(HTMLCanvas)
+        ScaledImageInfo.base64=ScaledImageInfo.urlRef=HTMLCanvas.toDataURL()
         ScaledImageInfo.type = 'skribble' // use ControlNet skribble
         ScaledImageInfo.base64 = ScaledImageInfo.base64.split(',')[1] // no url prefix for base64 needed here
         resultLayer.specialLayersImageInfo.push(ScaledImageInfo)
