@@ -37,7 +37,9 @@
     }
 
     let editText
-
+    export function refresh() {
+        values = values
+    }
 </script>
 
 <div class="show">
