@@ -25,6 +25,7 @@
 
     export function refresh() {
         layer=layer
+        console.log("refresh",layer)
     }
     
 
