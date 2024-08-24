@@ -78,7 +78,18 @@
     }
 
 
-    export function addLayer(newlayer) {
+    export function layerInstance() {
+        class textLayer extends globalThis.gyre.getLayerBaseClass() {
+            font_size
+            string
+            align
+            bold
+            italic
+            underline
+            letter_spacing
+            font
+        }
+        let newlayer=new textLayer()
         newlayer.type = 'fds-image-editor-text'
         newlayer.name = 'Text'
         newlayer.letter = "T"
@@ -91,6 +102,7 @@
         newlayer.underline=false
         newlayer.letter_spacing = 0
         newlayer.font = 'Josefin Sans'
+        return newlayer
     }
 
     export async function prepareForSave() {
