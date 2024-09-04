@@ -67,17 +67,9 @@
 
         let editor=document.getElementById("editor")
         let toolbar=document.getElementById("toolbar")
-        let values={selectedLayer:{
-            font_size:200,
-            string:"HELLO",
-            font: "Josefin Sans",
-            letter_spacing: 1,
-            background:"transparent"
-        }}        
-        editor.layer=values.selectedLayer
-        toolbar.layer=values.selectedLayer
+        
+        toolbar.layer=editor.layerInstance()
         toolbar.addEventListener("change",() => {
-            editor.layer=values.selectedLayer
             editor.refresh()
         })        
         let button=document.getElementById("renderAI")
@@ -97,7 +89,7 @@
             // set document width
             globalThis.gyre.canvas.width=512
             globalThis.gyre.canvas.height=512
-            let layer=editor.layerInstance()
+            let layer=editor.layer
             let base64=await layer.renderInDocumentSize()
             let test=document.getElementById("test2")
             test.src=base64
