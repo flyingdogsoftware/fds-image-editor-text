@@ -45,7 +45,7 @@
         let list = globalThis.gyre.layerManager.findClippingMasks(null, layer.id)
         if (list.length) {  // these are usually only one so optimization is not needed here
             for (let i = 0; i < list.length; i++) {
-                list[i].clippingMask(this) 
+                list[i].clippingMask(layer) 
             }
         }
     }
