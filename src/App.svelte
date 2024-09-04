@@ -105,7 +105,7 @@
             letter_spacing
             font
             async renderInDocumentSize() {
-                let component=this.element.getElementsByTagName("fds-image-editor-text")
+                let component=this.element.getElementsByTagName("fds-image-editor-text")[0]
                 return await component.renderForAI()
             }
         }

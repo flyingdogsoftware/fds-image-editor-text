@@ -55,7 +55,7 @@
 
 <button id="autosize">Auto Size</button><br>
 
-<div style="position: relative">
+<div style="position: relative" id="element">
     <fds-image-editor-text width="500" height="500" id="editor"></fds-image-editor-text>
   
 </div>
@@ -67,8 +67,10 @@
 
         let editor=document.getElementById("editor")
         let toolbar=document.getElementById("toolbar")
-        
+        let element=document.getElementById("element")
+
         toolbar.layer=editor.layerInstance()
+        editor.layer.element=element
         toolbar.addEventListener("change",() => {
             editor.refresh()
         })        
