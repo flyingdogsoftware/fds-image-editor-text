@@ -17,10 +17,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #434343;
         }
-        #render 
-        {
-            height: 50px;
-        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -70,6 +67,8 @@
         let element=document.getElementById("element")
 
         toolbar.layer=editor.layerInstance()
+        toolbar.layer.width=1024
+        toolbar.layer.height=1024
         editor.layer.element=element
         toolbar.addEventListener("change",() => {
             editor.refresh()

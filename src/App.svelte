@@ -337,10 +337,10 @@
         let image = new Image()
         return new Promise( (resolve) =>  {
             image.addEventListener('load',async () => {
-                canvas.width=parseInt( width)
-                canvas.height=parseInt( height)
+                canvas.width=parseInt( layer.width)
+                canvas.height=parseInt( layer.height)
                 const context = canvas.getContext('2d')
-                context.drawImage(image, 0, 0, width, height)
+                context.drawImage(image, 0, 0, layer.width, layer.height)
                 const dataUrl = canvas.toDataURL('image/png')
                 resolve(dataUrl)
             })
