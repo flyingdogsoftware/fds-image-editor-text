@@ -5,7 +5,7 @@
    
     import {get_current_component} from "svelte/internal"
     let host = get_current_component()
-    import { version as componentversion, name } from "../package.json"
+    import {		afterUpdate } from 'svelte';
     // eslint-disable-next-line no-unused-vars
     import Dialog from './Dialog.svelte';
         /**
@@ -25,15 +25,31 @@
 
     export function refresh() {
         layer=layer
-        console.log("refresh",layer)
     }
-    
+    let timer;
+    const debounceDelay = 1000; // 1 second for clipping mask refresh
 
-    /**
-     * version of component
-     * @type {string}
-     */
-    export const version = componentversion;
+    afterUpdate(() => {
+        if (timer) {
+            clearTimeout(timer) // Cancel any previous timeout
+        }
+
+        // Start a new timeout to delay image generation by 1 second
+        timer = setTimeout(() => {
+            generateClippingMasks()
+        }, debounceDelay)
+    })
+
+    function generateClippingMasks() {
+        if (!layer.id) return
+        let list = globalThis.gyre.layerManager.findClippingMasks(null, layer.id)
+        if (list.length) {  // these are usually only one so optimization is not needed here
+            for (let i = 0; i < list.length; i++) {
+                list[i].clippingMask(this) 
+            }
+        }
+    }
+
 
 
     function _destroy() {
@@ -105,6 +121,7 @@
         newlayer.underline=false
         newlayer.letter_spacing = 0
         newlayer.font = 'Josefin Sans'
+        layer=newlayer
         return newlayer
     }
 
