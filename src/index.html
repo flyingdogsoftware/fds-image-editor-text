@@ -15,7 +15,7 @@
         body {
             font-size: 15px;
             font-family: 'Inter', sans-serif;
-            background-color: #1b1b1b;
+            background-color: #434343;
         }
         #render 
         {
@@ -50,7 +50,9 @@
 
     <fds-image-editor-text-toolbar id="toolbar" ></fds-image-editor-text-toolbar>
 
-<button id="render">Prepare for AI</button><br>
+<button id="renderAI">Render for AI</button><br>
+<button id="render">Render as image layer</button><br>
+
 <button id="autosize">Auto Size</button><br>
 
 <div style="position: relative">
@@ -70,7 +72,7 @@
             string:"HELLO",
             font: "Josefin Sans",
             letter_spacing: 1,
-            background:"white"
+            background:"transparent"
         }}        
         editor.layer=values.selectedLayer
         toolbar.layer=values.selectedLayer
@@ -78,7 +80,7 @@
             editor.layer=values.selectedLayer
             editor.refresh()
         })        
-        let button=document.getElementById("render")
+        let button=document.getElementById("renderAI")
          button.addEventListener("click",async () => {
             // set document width
             globalThis.gyre.canvas.width=512
@@ -90,6 +92,17 @@
             let test=document.getElementById("test")
             test.src="data:image/png;base64,"+info.base64
         })
+        let button3=document.getElementById("render")
+         button3.addEventListener("click",async () => {
+            // set document width
+            globalThis.gyre.canvas.width=512
+            globalThis.gyre.canvas.height=512
+            let layer=editor.layerInstance()
+            let base64=await layer.renderInDocumentSize()
+            let test=document.getElementById("test2")
+            test.src=base64
+        })
+
         let button2=document.getElementById("autosize")
          button2.addEventListener("click",async () => {
            await editor.autoSize()
@@ -97,6 +110,8 @@
     })
 </script>
 <img id="test" width="500" >
+<img id="test2" width="500" >
+
 </body>
 
 </html>
