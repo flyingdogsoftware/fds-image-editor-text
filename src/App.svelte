@@ -88,6 +88,9 @@
             underline
             letter_spacing
             font
+            async renderInDocumentSize() {
+                return await renderForAI()
+            }
         }
         let newlayer=new textLayer()
         newlayer.type = 'fds-image-editor-text'
