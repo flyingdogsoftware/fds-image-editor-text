@@ -104,7 +104,7 @@
             underline
             letter_spacing
             font
-            async renderInDocumentSize() {
+            async render() {
                 let component=this.element.getElementsByTagName("fds-image-editor-text")[0]
                 return await component.renderForAI()
             }
