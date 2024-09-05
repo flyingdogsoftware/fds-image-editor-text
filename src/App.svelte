@@ -112,6 +112,7 @@
         let newlayer=new textLayer()
         newlayer.type = 'fds-image-editor-text'
         newlayer.name = 'Text'
+        newlayer.opacity=100
         newlayer.letter = "T"
         newlayer.background_type = 'transparent'
         newlayer.font_size = 200
@@ -484,7 +485,7 @@ let url=""
      */
     export let svg
 </script>
-<svg {width}  {height} style="background:{layer.background}"  viewBox="0 0 {innerWidth} {innerHeight}" bind:this={svg}>
+<svg {width}  {height} style="background:{layer.background};opacity:{layer.opacity}"  viewBox="0 0 {innerWidth} {innerHeight}" bind:this={svg} >
     <defs></defs>
 
     <text id="text" x="0" y="{innerHeight/2}"  style="text-decoration:{textdecoration}; font-style:{fontstyle}; font-weight:{fontweight}; font-size:{layer.font_size}px;font-family:'{layer.font}';letter-spacing:{layer.letter_spacing}rem"  dominant-baseline="middle" >
