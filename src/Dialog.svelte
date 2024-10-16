@@ -47,7 +47,7 @@
             Font Size: <span class="values3" style="display: inline-block; margin-right: 10px">{layer.font_size}</span>
             <fds-image-editor-slider
                     class="slider"
-                    min="50"
+                    min="8"
                     max="900"
                     on:input={(e) => { layer.font_size=e.target.value;layer=layer;change("change","font_size") }}
                     value={layer.font_size}
