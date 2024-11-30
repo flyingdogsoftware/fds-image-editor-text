@@ -90,10 +90,12 @@
         ScaledImageInfo.type = 'skribble' // use ControlNet skribble
         ScaledImageInfo.base64 = ScaledImageInfo.base64.split(',')[1] // no url prefix for base64 needed here
         resultLayer.specialLayersImageInfo.push(ScaledImageInfo)
-        layer.url=null  // temp render image not needed anymore
+    //    layer.url=null  // temp render image not needed anymore
     }
 
-
+    export async function updateURL() {
+        layer.url=await this.renderForAI()
+    }
     export function layerInstance() {
         class textLayer extends globalThis.gyre.getLayerBaseClass() {
             font_size
