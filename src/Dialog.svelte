@@ -19,8 +19,10 @@
     }
 
     function change(name, value) {
-        let component=this.element.getElementsByTagName("fds-image-editor-text")[0]
-        component.updateURL()
+        if (layer.element) {
+            let component=layer.element.getElementsByTagName("fds-image-editor-text")[0]
+            component.updateURL()
+        }
         host.dispatchEvent(new CustomEvent("change", {detail: {name: name, value: value}}))
     }
 
